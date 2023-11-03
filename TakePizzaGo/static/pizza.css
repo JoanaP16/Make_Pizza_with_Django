@@ -1,0 +1,17 @@
+.menu-link {
+    font-size: 20px;
+    color: black;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.menu-link:active {
+    color: red !important;
+}
+
+.form {
+    width: 600px;
+    height: 400px;
+    padding: 20px;
+    margin: 20px auto;
+}

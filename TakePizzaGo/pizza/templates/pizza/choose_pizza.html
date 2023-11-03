@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<h1>Welcome to Family Food</h1>
+<link rel="stylesheet" type="text/css" href="{% static 'pizza.css' %}">
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Tip pizza</th>
+      <th scope="col">Adauga</th>
+      <th scope="col">Elimina</th>
+    </tr>
+  </thead>
+  <tbody>
+        {% for pizza_type in pizza %}
+      <tr>
+        <td class="container">{{ pizza_type.type_pizza }}</td>
+         <td><a href="{% url 'adauga' pizza_type.id %}" class="btn bg-info bg-gradient">+</a></td>
+         <td><a href="{% url 'elimina' pizza_type.id %}" class="btn bg-danger bg-gradient">-</a></td>
+    </tr>
+<form class="form" method="post">
+    {% csrf_token %}
+    {{ form }}
+</form>
+    {% endfor %}
+
+  </tbody>
+</table>
+{% endblock content %}
